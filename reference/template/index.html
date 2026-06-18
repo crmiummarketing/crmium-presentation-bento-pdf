@@ -713,6 +713,19 @@
       color: var(--c-ink);
       font-weight: 500;
     }
+    .contact-logo {
+      position: absolute;
+      top: 64px;
+      left: 50%;
+      transform: translateX(-720px); /* лівий край = край контенту (max-width 1440, центрований) */
+      z-index: 3;
+    }
+    .contact-logo img {
+      height: 96px;
+      width: auto;
+      display: block;
+      opacity: 0.97;
+    }
 
     /* =========================================================
        Q&A slide — dark with gradient + outline watermark (no QR)
@@ -1124,6 +1137,9 @@
 
     <!-- ========== Slide 12: Contact ========== -->
     <section class="slide slide--contact" data-slide="12">
+      <div class="contact-logo">
+        <img src="assets/crmium-logo-white.png" alt="CRMiUM">
+      </div>
       <div class="slide-content">
         <div class="contact-eyebrow reveal">КОНТАКТИ</div>
         <h1 class="contact-name reveal">[Імʼя Прізвище]</h1>
@@ -1195,7 +1211,8 @@
         const activeSlide = slides[idx];
         const isFullBleed = activeSlide.classList.contains('slide--section') ||
                             activeSlide.classList.contains('slide--qa') ||
-                            activeSlide.classList.contains('slide--image');
+                            activeSlide.classList.contains('slide--image') ||
+                            activeSlide.classList.contains('slide--contact');
         document.body.classList.toggle('no-bar', isFullBleed);
 
         // re-trigger reveal animations
